@@ -120,7 +120,7 @@ class _TableDataGridState extends SampleViewState {
 
   Widget getCellWidget(BuildContext context, GridColumn column, int rowIndex) {
     if (column.mappingName == 'tipo') {
-      final String nombre = _datoCollection[rowIndex].tipo;
+      // final String nombre = _datoCollection[rowIndex].tipo;
       return Center(
           child: Icon(
         Icons.local_shipping,

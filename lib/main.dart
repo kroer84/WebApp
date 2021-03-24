@@ -33,7 +33,6 @@ class MyApp extends StatelessWidget {
               margin:
                   EdgeInsets.only(left: 150, top: 50, right: 150, bottom: 50),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
                 children: [BarraLateral(), Expanded(child: Cuerpo())],
               ),
             ),

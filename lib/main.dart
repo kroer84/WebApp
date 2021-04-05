@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
+import 'package:myapp/controllers/cuerpo_controller.dart';
 import 'Componentes/barra_lateral.dart';
 import 'Componentes/cuerpo.dart';
 
@@ -9,9 +10,10 @@ void main() =>
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    Get.put(CuerpoController());
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Crese',
+      title: 'Crece',
       home: Scaffold(
         body: Container(
           height: MediaQuery.of(context).size.height,
@@ -29,9 +31,12 @@ class MyApp extends StatelessWidget {
           child: Center(
             child: Container(
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30), color: Colors.white),
-              margin:
-                  EdgeInsets.only(left: 150, top: 50, right: 150, bottom: 50),
+                  borderRadius: BorderRadius.circular(30), color: Color(0x00000000)),
+              margin: EdgeInsets.only(
+                  left: Get.width * .05,
+                  top: Get.height * .05,
+                  right: Get.width * .05,
+                  bottom: Get.height * .05),
               child: Row(
                 children: [BarraLateral(), Expanded(child: Cuerpo())],
               ),

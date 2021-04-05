@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'ItemMenu.dart';
 
@@ -28,21 +29,33 @@ class _BarraLateralState extends State<BarraLateral> {
           )),
       child: Column(
         children: [
-          Container(
-            height: 30,
+          SizedBox(
+            height: 20,
           ),
-          Text('R', style: TextStyle(fontSize: 40, color: Colors.white)),
-          // IconButton(icon: Icon(Icons.add), onPressed: () {})
-          Container(
-            height: 50,
+          Image.asset(
+            'lib/asset/images/apoya_transparent.png',
+            width: 50,
           ),
-          ItemMenu('home', 'Home'),
-          ItemMenu('code', 'Codigo'),
-          ItemMenu('alarm', 'Alarma'),
-          ItemMenu('info', 'Información'),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              SizedBox(height: Get.height * .1),
+              ItemMenu('carga', 'Carga', 0),
+              SizedBox(height: Get.height * .02),
+              ItemMenu('tesoreria', 'Tesorería', 1),
+              SizedBox(height: Get.height * .02),
+              ItemMenu('tesoreria', 'Corte', 2),
+              SizedBox(height: Get.height * .02),
+              ItemMenu('ant', 'Tabla', 3),
+              SizedBox(height: Get.height * .02),
+              ItemMenu('catalogos', 'Catálogos', 4),
+              SizedBox(height: Get.height * .02),
+              ItemMenu('usuarios', 'Usuarios', 5),
+              SizedBox(height: Get.height * .1),
+            ],
+          ),
         ],
       ),
     );
   }
 }
-

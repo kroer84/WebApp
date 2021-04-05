@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/pages/datagrid.dart';
+import 'package:get/get.dart';
+import 'package:myapp/controllers/cuerpo_controller.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class Cuerpo extends StatefulWidget {
@@ -8,20 +9,27 @@ class Cuerpo extends StatefulWidget {
 }
 
 class _CuerpoState extends State<Cuerpo> {
+  CuerpoController controller = Get.find<CuerpoController>();
+
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
-              topRight: Radius.circular(30), bottomRight: Radius.circular(30)),
-          color: Color.fromRGBO(237, 241, 247, 0.5)),
+            topRight: Radius.circular(30),
+            bottomRight: Radius.circular(30),
+          ),
+          // color: Color(0x00000000)
+          ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
             height: 200,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(topRight: Radius.circular(30)),
+                borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(30),
+                    bottomRight: Radius.circular(30)),
                 gradient: LinearGradient(
                   begin: FractionalOffset.topCenter,
                   end: FractionalOffset.bottomCenter,
@@ -140,23 +148,7 @@ class _CuerpoState extends State<Cuerpo> {
               ],
             ),
           ),
-          Expanded(
-            child: Container(
-                child: TableDataGrid(),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black,
-                      blurRadius: 2.0,
-                      spreadRadius: 0.0,
-                      offset:
-                          Offset(2.0, 2.0), // shadow direction: bottom right
-                    )
-                  ],
-                )),
-          )
+          Obx(() => controller.seccion[controller.menuSeleccionado.value]),
         ],
       ),
     );

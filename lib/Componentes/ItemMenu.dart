@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:myapp/controllers/cuerpo_controller.dart';
 
 class ItemMenu extends StatelessWidget {
   final _icons = <String, IconData>{
@@ -8,11 +10,20 @@ class ItemMenu extends StatelessWidget {
     'report': Icons.report,
     'info': Icons.info,
     'contacto': Icons.contact_page,
+    'catalogos': Icons.table_rows,
+    'usuarios': Icons.people,
+    'tesoreria': Icons.monetization_on,
+    'ant': Icons.table_chart,
+    'carga': Icons.upload_file,
   };
+
   final String nombre;
   final String nombreIcono;
+  final int seleccion;
 
-  ItemMenu(this.nombreIcono, this.nombre);
+  final CuerpoController controller = Get.find<CuerpoController>();
+
+  ItemMenu(this.nombreIcono, this.nombre, this.seleccion);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +39,8 @@ class ItemMenu extends StatelessWidget {
                 color: Colors.white,
               ),
               onPressed: () {
-                print(nombreIcono);
+                print(nombre);
+                controller.menuSeleccionado.value = seleccion;
               }),
           Text(nombre, style: TextStyle(fontSize: 10, color: Colors.white)),
         ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/models/corte_operaciones.dart';
+import 'package:myapp/models/respuestaCartera.dart';
 
 import 'package:myapp/providers/data_provider.dart';
 import 'package:myapp/models/edo_cuenta_individual.dart';
@@ -41,6 +42,12 @@ class CargaDatos extends StatelessWidget {
                   guardaCorteOperaciones,
                   ['#'],
                   null),
+              cargaWidget(
+                  dp.getCartera(),
+                  Text('Se cargo la informacion cartera Diciembre 19'),
+                  guardaEdoCartera,
+                  ['#'],
+                  null),
             ],
           ),
         ),
@@ -50,6 +57,10 @@ class CargaDatos extends StatelessWidget {
 
   guardaEdoCuenta(List<EdoCuentaIndividual> edosCuenta) =>
       Sesion.miSesion.edosCuenta = edosCuenta;
+
+  guardaEdoCartera(List<Cartera> edoCartera) =>
+      Sesion.miSesion.edoCartera = edoCartera;
+
   guardaCorteOperaciones(List<CorteOperaciones> corte) {
     Sesion.miSesion.corteOperaciones = corte;
   }

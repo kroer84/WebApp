@@ -5,7 +5,8 @@ import 'package:myapp/controllers/cuerpo_controller.dart';
 class ItemMenu extends StatelessWidget {
   final _icons = <String, IconData>{
     'home': Icons.home,
-    'code': Icons.code,
+    'cartera': Icons.wallet_giftcard,
+    'corte': Icons.corporate_fare,
     'alarm': Icons.alarm,
     'report': Icons.report,
     'info': Icons.info,

@@ -36,16 +36,24 @@ class _BarraLateralState extends State<BarraLateral> {
             'lib/asset/images/apoya_transparent.png',
             width: 50,
           ),
-          SingleChildScrollView(
-            child: Column(
+          Expanded(
+            child: ListView(
               children: [
+                SizedBox(height: Get.height * .05),
                 ItemMenu('carga', 'Carga', 0),
+                SizedBox(height: Get.height * .02),
                 ItemMenu('tesoreria', 'Tesorería', 1),
+                SizedBox(height: Get.height * .02),
                 ItemMenu('corte', 'Corte', 2),
+                SizedBox(height: Get.height * .02),
                 ItemMenu('cartera', 'Cartera', 3),
+                SizedBox(height: Get.height * .02),
                 ItemMenu('ant', 'Tabla', 4),
+                SizedBox(height: Get.height * .02),
                 ItemMenu('catalogos', 'Catálogos', 5),
+                SizedBox(height: Get.height * .02),
                 ItemMenu('usuarios', 'Usuarios', 6),
+                SizedBox(height: Get.height * .05),
               ],
             ),
           ),

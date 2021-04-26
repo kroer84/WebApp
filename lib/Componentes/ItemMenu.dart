@@ -16,6 +16,7 @@ class ItemMenu extends StatelessWidget {
     'tesoreria': Icons.monetization_on,
     'ant': Icons.table_chart,
     'carga': Icons.upload_file,
+    'flujo': Icons.insights_outlined,
   };
 
   final String nombre;

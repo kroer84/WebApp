@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/models/corte_operaciones.dart';
+import 'package:myapp/models/model_flujo_de_efectivo.dart';
 import 'package:myapp/models/respuestaCartera.dart';
 
 import 'package:myapp/providers/data_provider.dart';
@@ -48,6 +49,12 @@ class CargaDatos extends StatelessWidget {
                   guardaEdoCartera,
                   ['#'],
                   null),
+              cargaWidget(
+                  dp.getFlujoDeEfectivo(),
+                  Text('Se cargo la informacion Flujo de Efectivo'),
+                  guardaFlujoDeEfectivo,
+                  ['#'],
+                  null),
             ],
           ),
         ),
@@ -60,6 +67,9 @@ class CargaDatos extends StatelessWidget {
 
   guardaEdoCartera(List<Cartera> edoCartera) =>
       Sesion.miSesion.edoCartera = edoCartera;
+
+  guardaFlujoDeEfectivo(List<FlujoDeEfectivo> edoFlujoDeEfectivo) =>
+      Sesion.miSesion.edoFlujoDeEfectivo = edoFlujoDeEfectivo;
 
   guardaCorteOperaciones(List<CorteOperaciones> corte) {
     Sesion.miSesion.corteOperaciones = corte;

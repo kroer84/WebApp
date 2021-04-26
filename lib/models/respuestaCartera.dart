@@ -4,12 +4,11 @@
 
 import 'dart:convert';
 
-//List<CorteOperaciones> corteOperacionesFromJson(String str) => List<CorteOperaciones>.from(json.decode(str).map((x) => CorteOperaciones.fromJson(x)));
 List<Cartera> carteraFromJson(String str) =>
     List<Cartera>.from(json.decode(str).map((x) => Cartera.fromJson(x)));
 
-// String carteraToJson(List<Cartera> data) =>
-//     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String carteraToJson(List<Cartera> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Cartera {
   Cartera({
@@ -31,51 +30,15 @@ class Cartera {
   String producto;
 
   factory Cartera.fromJson(Map<String, dynamic> json) => Cartera(
-        empresa: json["empresa"],
         ac: json["ac"],
         clave: json["clave"],
-        producto: json["producto"],
+        empresa: json["empresa"],
         headCount: json["head_count"],
         idEmpresa: json["idEmpresa"],
         periodos: List<PeriodoElement>.from(
             json["periodos"].map((x) => PeriodoElement.fromJson(x))),
+        producto: json["producto"],
       );
-
-  Map titulos = {
-    "ac": "Texto",
-    "clave": "Texto",
-    "empresa": "Texto",
-    "head_count": "Entero",
-    "idEmpresa": "Entero",
-    "periodos": "Texto",
-    "producto": "Texto",
-  };
-
-  obtenValor(String valor, Cartera _datos) {
-    switch (valor) {
-      case 'banco':
-        return _datos.ac;
-        break;
-      case 'caja':
-        return _datos.clave;
-        break;
-      case 'clabe_bancaria':
-        return _datos.empresa;
-        break;
-      case 'clave_participante':
-        return _datos.headCount;
-        break;
-      case 'codigo':
-        return _datos.idEmpresa;
-        break;
-      case 'concepto_pago':
-        return _datos.periodos;
-        break;
-      case 'descripcion':
-        return _datos.producto;
-        break;
-    }
-  }
 
   Map<String, dynamic> toJson() => {
         "ac": ac,
@@ -86,6 +49,44 @@ class Cartera {
         "periodos": List<dynamic>.from(periodos.map((x) => x.toJson())),
         "producto": producto,
       };
+  Map titulos = {
+    "ac": "Texto",
+    "clave": "Texto",
+    "empresa": "Texto",
+    "head_count": "Entero",
+    "idEmpresa": "Entero",
+    "periodos": List<dynamic>.empty(),
+    "producto": "Texto",
+  };
+
+  obtenValor(String valor, Cartera _datos) {
+    switch (valor) {
+      case 'ac':
+        return _datos.ac;
+        break;
+      case 'clave':
+        return _datos.clave;
+        break;
+      case 'empresa':
+        return _datos.empresa;
+        break;
+      case 'head_count':
+        return _datos.headCount;
+        break;
+      case 'idEmpresa':
+        return _datos.idEmpresa;
+        break;
+      case 'periodos':
+        return _datos.periodos;
+        break;
+      case 'producto':
+        return _datos.producto;
+        break;
+      default:
+        return 'vacio';
+        break;
+    }
+  }
 }
 
 class PeriodoElement {
@@ -119,6 +120,17 @@ class PeriodoElement {
         termCartera: json["term_cartera"].toDouble(),
         termParticipantes: json["term_participantes"].toDouble(),
       );
+
+  Map titulos = {
+    "ahorro": "Texto",
+    "cartera": "Texto",
+    "intereses": "Texto",
+    "num_participantes": "Texto",
+    "periodo": "Texto",
+    "porc_participacion": "Texto",
+    "term_cartera": "Texto",
+    "term_participantes": "Texto",
+  };
 
   Map<String, dynamic> toJson() => {
         "ahorro": ahorro,

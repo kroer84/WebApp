@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/pages/table_flujo_de_efectivo.dart';
 
-import 'package:myapp/pages/table_data_grid.dart';
-
-class Tesoreria extends StatelessWidget {
-  const Tesoreria({Key key}) : super(key: key);
+class PageFlujoDeEfectivo extends StatelessWidget {
+  const PageFlujoDeEfectivo({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
           padding: EdgeInsets.all(20),
-          child: TableDataGrid(),
+          child: TablaFlujoDeEfectivo(),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
